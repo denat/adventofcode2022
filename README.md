@@ -2,12 +2,18 @@
 
 Hey there! This is my attempt at solving the [Advent of Code 2022](https://adventofcode.com/2022) puzzles in Bash.
 
-OS used: OSX Monterey 12.6
+OSX Monterey 12.6
+Bash 5.2.2(1)-release (x86_64-apple-darwin21.6.0)
 
 ## Handy commands
 
 ```sh
+# Remove newlines
+tr -d '\n'
+
 # Replace newlines with spaces
+tr '\n' ' '
+# or
 awk -v RS= '{$1=$1}1'
 
 # Perform arithmetic (e.g. sum) on numbers separated by a space
@@ -34,3 +40,8 @@ sed 's/ /+/g' | bc
 read first second <<< "hello world"
 echo $second $first
 ```
+
+- Variables are global by default, even if they are declared inside a function. To make them local, use the `local` keyword.
+- Bash has arrays, and you can implement stacks and queues. See day 5 for a Stack example.
+- [IFS](https://bash.cyberciti.biz/guide/$IFS) (Internal Field Separator) is important! It determines how Bash recognizes Word boundaries. Useful when you care about parsing whitespace.
+- Set multiple variables at once with `read`: `read -r var1 var2 <<< "hello world"`, or `read -r a b c < <(cut -d' ' -f2,4,6 <<< $line)`
