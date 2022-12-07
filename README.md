@@ -12,12 +12,14 @@ Bash 5.2.2(1)-release (x86_64-apple-darwin21.6.0)
 tr -d '\n'
 
 # Replace newlines with spaces
-tr '\n' ' '
-# or
 awk -v RS= '{$1=$1}1'
 
 # Perform arithmetic (e.g. sum) on numbers separated by a space
 sed 's/ /+/g' | bc
+
+# Parse nth word in a line
+cut -d' ' -f2 # 2nd word
+cut -d' ' -f3 # 3rd word
 ```
 
 ## Things I learned
@@ -45,3 +47,5 @@ echo $second $first
 - Bash has arrays, and you can implement stacks and queues. See day 5 for a Stack example.
 - [IFS](https://bash.cyberciti.biz/guide/$IFS) (Internal Field Separator) is important! It determines how Bash recognizes Word boundaries. Useful when you care about parsing whitespace.
 - Set multiple variables at once with `read`: `read -r var1 var2 <<< "hello world"`, or `read -r a b c < <(cut -d' ' -f2,4,6 <<< $line)`
+- `==` is an alias for `=` and it performs a string (lexical) comparison, `eq` performs a numeric comparison.
+- Array keys are accessed with `${!array[@]}` and values with `${array[@]}`. See day 7.
