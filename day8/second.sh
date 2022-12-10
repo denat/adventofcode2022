@@ -3,7 +3,6 @@
 input="input.txt"
 
 declare -A map
-declare -A counted
 
 i=0
 j=0
