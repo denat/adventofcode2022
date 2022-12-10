@@ -20,6 +20,7 @@ sed 's/ /+/g' | bc
 # Parse nth word in a line
 cut -d' ' -f2 # 2nd word
 cut -d' ' -f3 # 3rd word
+
 ```
 
 ## Things I learned
@@ -49,3 +50,12 @@ echo $second $first
 - Set multiple variables at once with `read`: `read -r var1 var2 <<< "hello world"`, or `read -r a b c < <(cut -d' ' -f2,4,6 <<< $line)`
 - `==` is an alias for `=` and it performs a string (lexical) comparison, `eq` performs a numeric comparison.
 - Array keys are accessed with `${!array[@]}` and values with `${array[@]}`. See day 7.
+- Use `tac` to reverse a file, last line first.
+- Bash supports multidimensional arrays:
+  - Declare an array with `declare -A array_name`
+  - Set an element with `array_name[key1,key2]=value`
+  - Get all keys with `for key in "${!array_name[@]}"; do echo $key; done`
+  - Get all values with `for value in "${array_name[@]}"; do echo $value; done`
+  - Get length with `echo ${#array_name[@]}`
+- Text interpolation only works with double quotes, not single quotes.
+- In Bash, you can break out of multiple loops! By default, `break` only breaks out of the innermost loop. To break out of all loops, use `break 2` or `break 3` etc.
