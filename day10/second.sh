@@ -16,7 +16,6 @@ total_cycles=0
 pointer=0
 cycle_counter=0
 result=0
-crt_i=0
 crt_j=0
 while true; do 
     total_cycles=$((total_cycles+1))
@@ -57,6 +56,5 @@ while true; do
     crt_j=$((crt_j+1))
     if [[ $crt_j -eq 40 ]]; then
         crt_j=0
-        crt_i=$((crt_i+1))
     fi
 done
