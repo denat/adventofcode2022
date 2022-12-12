@@ -1,11 +1,14 @@
-# Advent of Code 2022 - Bash
+# Advent of Code 2022 - Bash & Python
 
-Hey there! This is my attempt at solving the [Advent of Code 2022](https://adventofcode.com/2022) puzzles in Bash.
+Hey there! This is my attempt at solving the [Advent of Code 2022](https://adventofcode.com/2022) puzzles in Bash and Python.
 
-OSX Monterey 12.6
-Bash 5.2.2(1)-release (x86_64-apple-darwin21.6.0)
+I retired Bash on day 11 part 2 because it was too slow 🐢, and switched to Python for the rest of the puzzles. 🐍
 
-## Handy commands
+- OSX Monterey 12.6
+- Bash 5.2.2(1)-release (x86_64-apple-darwin21.6.0)
+- Python 3.8.2
+
+## Handy bash commands
 
 ```sh
 # Remove newlines
@@ -23,7 +26,7 @@ cut -d' ' -f3 # 3rd word
 
 ```
 
-## Things I learned
+## Things I learned (Bash)
 
 - The ‘#‘ symbol can be used to count the length of the string without using any command, e.g. `line="test123"; echo ${#line}`
 - Shell expansion:
@@ -59,3 +62,5 @@ echo $second $first
   - Get length with `echo ${#array_name[@]}`
 - Text interpolation only works with double quotes, not single quotes.
 - In Bash, you can break out of multiple loops! By default, `break` only breaks out of the innermost loop. To break out of all loops, use `break 2` or `break 3` etc.
+- You can use `BASH_REMATCH` to capture the matched string in a regex. If the latest [[]]-expression matched the string, the matched part of the string is stored in the BASH_REMATCH array.
+- Remove the first part of a string with `string=${string#substring}`. Remove the last part with `string=${string%substring}`.
