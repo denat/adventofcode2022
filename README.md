@@ -64,3 +64,9 @@ echo $second $first
 - In Bash, you can break out of multiple loops! By default, `break` only breaks out of the innermost loop. To break out of all loops, use `break 2` or `break 3` etc.
 - You can use `BASH_REMATCH` to capture the matched string in a regex. If the latest [[]]-expression matched the string, the matched part of the string is stored in the BASH_REMATCH array.
 - Remove the first part of a string with `string=${string#substring}`. Remove the last part with `string=${string%substring}`.
+
+# Things I learned (Python)
+
+- Use `zip_longest` from `itertools` to iterate over multiple lists of different lengths.
+- Python's equivalent of the `...rest` operator is `*rest`.
+- I can use my own custom sort function with `sorted` by passing in a `key` function, with the help of functools' `cmp_to_key` function. Example: `sorted([1, 2, 3], key=cmp_to_key(lambda a, b: a - b))` (See day 13)
